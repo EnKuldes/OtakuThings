@@ -24,40 +24,43 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/bootstrap-extended.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/colors.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/components.min.css') }}">
+    
+    {{-- Extra CSS --}}
+    @yield('extra-lib-css')
+
     {{-- BEGIN: Custom CSS --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
     
+    
+
+</head>
+<body class="vertical-layout vertical-menu 2-columns   fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
+    {{-- Header --}}
+    @extends('layouts.header')
+    {{-- Main Menu --}}
+    @extends('layouts.main-menu')
+    {{-- Content --}}
+    <div class="app-content content">
+    @yield('content')
+    </div>
+
+    {{-- Customizer --}}
+    {{-- @extends('layouts.customizer') --}}
+
+    {{-- Footer --}}
+    @extends('layouts.footer')
+
     {{-- Main Scripts --}}
     {{-- BEGIN: Vendor JS --}}
     <script src="{{ asset('app-assets/vendors/js/vendors.min.js') }}"></script>
-    {{-- BEGIN: Theme JS --}}
-    <script src="{{ asset('app-assets/js/core/app-menu.min.js') }}"></script>
-    <script src="{{ asset('app-assets/js/core/app.min.js') }}"></script>
-    <script src="{{ asset('app-assets/js/scripts/customizer.min.js')}}"></script>
-
-    {{-- Extra CSS --}}
-    @yield('extra-lib-css')
-    
 
     {{-- Extra JS --}}
     @yield('extra-lib-js')
-
-</head>
-<body class="vertical-layout vertical-menu content-left-sidebar chat-application  fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="content-left-sidebar">
-    <div class="app-content content">
-        <div class="content-overlay"></div>
-        <div class="content-wrapper">
-            <div class="content-header row"></div>
-            <div class="content-body">
-                <section class="row flexbox-container">
-                <div class="col-12 d-flex align-items-center justify-content-center">
-                    @yield('content')
-                    
-                </div>
-                </section>
-            </div>
-        </div>
-    </div>
+    
+    {{-- BEGIN: Theme JS --}}
+    <script src="{{ asset('app-assets/js/core/app-menu.min.js') }}"></script>
+    <script src="{{ asset('app-assets/js/core/app.min.js') }}"></script>
+    {{-- <script src="{{ asset('app-assets/js/scripts/customizer.min.js')}}"></script> --}}
 
     {{-- Extra Scripts --}}
     @yield('extra-script')
