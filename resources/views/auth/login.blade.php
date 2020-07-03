@@ -28,21 +28,31 @@
     </div>
     <div class="card-content">
         <div class="card-body">
-            <form class="form-horizontal" action="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/html/ltr/vertical-menu-template/index.html" novalidate>
+            <form class="form-horizontal" action="{{ route('login') }}" method="post" novalidate>
                 <fieldset class="form-group position-relative has-icon-left">
                     <input type="text" class="form-control" id="user-perner" placeholder="Perner Anda"
-                    required name="perner">
+                    required name="perner" autocomplete="false">
                     <div class="form-control-position">
                         <i class="feather icon-user"></i>
                     </div>
                 </fieldset>
+                @error('perner')
+                <div class="alert alert-danger mb-2" role="alert">
+                    <strong>{{ $message }}</strong>
+                </div>
+                @enderror
                 <fieldset class="form-group position-relative has-icon-left">
                     <input type="password" class="form-control" id="user-password"
-                    placeholder="Password Anda" required name="password">
+                    placeholder="Password Anda" required name="password" autocomplete="false">
                     <div class="form-control-position">
                         <i class="fa fa-key"></i>
                     </div>
                 </fieldset>
+                @error('password')
+                <div class="alert alert-danger mb-2" role="alert">
+                    <strong>{{ $message }}</strong>
+                </div>
+                @enderror
                 <button type="submit" class="btn btn-outline-primary btn-block"><i
                 class="feather icon-unlock"></i> Login</button>
             </form>

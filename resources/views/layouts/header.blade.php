@@ -172,7 +172,10 @@
               <a class="dropdown-item" href="#"><i class="feather icon-check-square"></i> Task</a>
               <a class="dropdown-item" href="#"><i class="feather icon-message-square"></i> Chats</a> --}}
               {{-- <div class="dropdown-divider"></div> --}}
-              <a class="dropdown-item" href="{{ route('logout') }}"><i class="feather icon-power"></i> Logout</a>
+              <a class="dropdown-item" href="#logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="feather icon-power"></i> Logout</a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
             </div>
           </li>
         </ul>
