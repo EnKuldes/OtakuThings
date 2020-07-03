@@ -19,10 +19,15 @@ class CreateUsersTable extends Migration
             // Informasi Akun
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('perner')->unique();
+            $table->string('posisi')->nullable();
+            $table->integer('user_level')->default(0);
+            $table->string('user_image')->default('avatar-s-1.png');
             // Informasi Akun
             
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum('is_enabled',[0,1])->default(1);
             $table->rememberToken();
             $table->timestamps();
         });
