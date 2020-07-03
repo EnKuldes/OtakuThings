@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             // Informasi Akun
             
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->default(bcrypt('npc@nps2020'));
             $table->enum('is_enabled',[0,1])->default(1);
             $table->rememberToken();
             $table->timestamps();
