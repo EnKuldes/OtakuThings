@@ -21,3 +21,4 @@ Auth::routes([
 	'confirm' => false, // Password Routes...
 ]);
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/utilities/user-managements', 'HomeController@user_management')->name('utilities.user-managements');
