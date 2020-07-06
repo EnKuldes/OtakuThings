@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('perner')->unique();
+            $table->string('username');
             $table->string('posisi')->nullable();
             $table->integer('user_level')->default(0);
             $table->string('user_image')->default('avatar-s-1.png');
