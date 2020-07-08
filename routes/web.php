@@ -22,10 +22,13 @@ Auth::routes([
 ]);
 Route::get('/', 'HomeController@get_first_page')->name('redirect-first-page');
 
-// App
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
-Route::get('/workspace/consumer', 'HomeController@workspace_consumer')->name('workspace.consumer');
-Route::get('/workspace/enterprise', 'HomeController@workspace_enterprise')->name('workspace.enterprise');
 
+// App Agent
+Route::get('/agent/workspace/consumer', 'HomeController@workspace_consumer')->name('agent.workspace-consumer');
+Route::get('/agent/workspace/enterprise', 'HomeController@workspace_enterprise')->name('agent.workspace-enterprise');
+
+// App Admin
 // Utilities
-Route::get('/utilities/user-managements', 'HomeController@user_management')->name('utilities.user-managements');
+Route::get('/utilities/user-managements', 'User\AdminController@user_management')->name('utilities.user-managements');
+Route::get('/utilities/menu-managements', 'User\AdminController@menu_management')->name('utilities.menu-managements');
