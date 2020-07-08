@@ -20,5 +20,12 @@ Auth::routes([
 	'verify' => false, // Email Verification Routes...
 	'confirm' => false, // Password Routes...
 ]);
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@get_first_page')->name('redirect-first-page');
+
+// App
+Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+Route::get('/workspace/consumer', 'HomeController@workspace_consumer')->name('workspace.consumer');
+Route::get('/workspace/enterprise', 'HomeController@workspace_enterprise')->name('workspace.enterprise');
+
+// Utilities
 Route::get('/utilities/user-managements', 'HomeController@user_management')->name('utilities.user-managements');
