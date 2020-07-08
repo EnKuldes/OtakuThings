@@ -57,4 +57,17 @@ class HomeController extends Controller
         }
         return $tempArray;
     }
+    
+    // Halaman Awal
+    protected function get_first_page($array_menu = [], $parent_menu = 0)
+    {
+        $tempArray = DB::table('to_menu')->select('id', 'parent_menu', 'menu_name', 'menu_icon', 'menu_link', 'menu_child')
+            ->whereIn('id', function ($query){
+                $query->select('menu_id')->from('to_user_access')->where('user_level', '=', auth()->user()->user_level);
+            })->where([
+                ['is_enabled', '=', '1']
+                , ['parent_menu', '=', $parent_menu]
+            ])->first();
+        return redirect($tempArray->menu_link);
+    }
 }
