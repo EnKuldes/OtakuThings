@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UserSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(QuestionnaireQuestionSeeder::class);
+        $this->call(QuestionnaireGreetingSeeder::class);
 
         // List Jenis Survey
         $jenis_survey = array(
