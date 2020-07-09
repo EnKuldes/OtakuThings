@@ -31,4 +31,11 @@ Route::get('/agent/workspace/enterprise', 'HomeController@workspace_enterprise')
 // App Admin
 // Utilities
 Route::get('/utilities/user-managements', 'User\AdminController@user_management')->name('utilities.user-managements');
+Route::get('/utilities/user-managements/list-user-datatables', 'User\AdminController@datatables_list_user')->name('utilities.user-managements.list-user-datatables');
+Route::post('/utilities/user-managements/save-user', 'User\AdminController@save_user')->name('utilities.user-managements.save-user');
+
+Route::get('/utilities/user-managements/list-user-level-datatables', 'User\AdminController@datatables_list_user_level')->name('utilities.user-managements.list-user-level-datatables');
+Route::post('/utilities/user-managements/list-user-level-ajax', 'User\AdminController@ajax_list_user')->name('utilities.user-managements.list-user-level-ajax');
+Route::post('/utilities/user-managements/save-user-level', 'User\AdminController@save_user_level')->name('utilities.user-managements.save-user-level');
+
 Route::get('/utilities/menu-managements', 'User\AdminController@menu_management')->name('utilities.menu-managements');

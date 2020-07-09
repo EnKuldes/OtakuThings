@@ -15,6 +15,7 @@
     <link href="{{ asset('assets/css/font-googleapis.css') }}" rel="stylesheet">
     {{-- BEGIN: Vendor CSS --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/vendors.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/extensions/toastr.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/extensions/unslider.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/weather-icons/climacons.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/fonts/meteocons/style.min.css') }}">
@@ -24,6 +25,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/bootstrap-extended.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/colors.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/components.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/plugins/extensions/toastr.min.css') }}">
     
     {{-- Extra CSS --}}
     @yield('extra-lib-css')
@@ -61,9 +63,21 @@
     <script src="{{ asset('app-assets/js/core/app-menu.min.js') }}"></script>
     <script src="{{ asset('app-assets/js/core/app.min.js') }}"></script>
     {{-- <script src="{{ asset('app-assets/js/scripts/customizer.min.js')}}"></script> --}}
+    <script src="{{ asset('app-assets/vendors/js/extensions/toastr.min.js') }}"></script>
+    {{-- <script src="{{ asset('app-assets/js/scripts/extensions/toastr.min.js') }}"></script> --}}
 
     {{-- Extra Scripts --}}
     @yield('extra-script')
+    <script type="text/javascript">
+        function toastr_me(condition, title, messages) {
+            toastr[condition](title, messages, {
+                showMethod: "slideDown",
+                hideMethod: "slideUp",
+                timeOut: 2e3,
+                progressBar: !0
+            })
+        }
+    </script>
     
 </body>
 </html>
