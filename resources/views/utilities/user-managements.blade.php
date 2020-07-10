@@ -1,14 +1,10 @@
 @extends('layouts.app')
 
 @section('extra-lib-css')
+<!-- BEGIN: Page CSS-->
 <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/tables/datatable/datatables.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/forms/toggle/switchery.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/plugins/forms/switch.min.css') }}">
-<!-- BEGIN: Page CSS-->
-<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/menu/menu-types/vertical-menu.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/core/colors/palette-gradient.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/fonts/simple-line-icons/style.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/timeline.min.css') }}">
 <!-- END: Page CSS-->
 @endsection
 @section('extra-lib-js')
@@ -329,7 +325,7 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content border-pink ">
 			<div class="modal-header bg-pink bg-accent-2 white">
-				<h4 class="modal-title" id="user-label">Tambah User</h4>
+				<h4 class="modal-title" id="user-label">User Manajemen</h4>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -381,7 +377,7 @@
 						<div class="col-md-4">
 							<div class="form-group">
 								<label>Aktif</label>
-								<input name="is_enabled" type="checkbox" class="switch" id="" checked="checked" data-on-label="Ya" data-off-label="Tidak" />
+								<input name="is_enabled" type="checkbox" class="switch" checked="checked" data-on-label="Ya" data-off-label="Tidak" />
 							</div>
 						</div>
 					</div>
@@ -397,7 +393,7 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content border-pink ">
 			<div class="modal-header bg-pink bg-accent-2 white">
-				<h4 class="modal-title" id="user-level-label">Tambah User Level</h4>
+				<h4 class="modal-title" id="user-level-label">User Level Manajemen</h4>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
@@ -422,7 +418,7 @@
 						<div class="col-md-4">
 							<div class="form-group">
 								<label>Aktif</label>
-								<input type="checkbox" name="is_enabled" class="switch" id="" checked="checked" data-on-label="Ya" data-off-label="Tidak" />
+								<input type="checkbox" name="is_enabled" class="switch" checked="checked" data-on-label="Ya" data-off-label="Tidak" />
 							</div>
 						</div>
 					</div>
