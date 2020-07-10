@@ -48,7 +48,8 @@ class AdminController extends Controller
     	}
     	
         $menu_list = $this->get_menu_item();
-        return view('utilities.menu-managements')->with(compact('menu_list'));
+        $list_user_level = $this->list_user_level();
+        return view('utilities.menu-managements')->with(compact('menu_list'))->with(compact('list_user_level'));
     }
 
     // List User
@@ -61,7 +62,7 @@ class AdminController extends Controller
     		}
     	}
     	if (auth()->user()->user_level != 4) {
-    		$datas->whereNotIn('user_level', [4]);
+    		$datas->whereNotIn('users.user_level', [4]);
     	}
     	$datas = $datas->select('users.id', 'users.name', 'users.email', 'users.perner', 'users.username', 'users.posisi', 'users.user_level as user_level_id', 'users.is_enabled', 'to_user_level.user_level')->get();
     	$datas->map(function ($datas, $i) {
@@ -193,6 +194,105 @@ class AdminController extends Controller
     			]
     		);
     		$user = DB::table('users')->where('user_level', $request->id_user_level)->update(['is_enabled' => $is_enabled]);
+    		return response()->json('success', 200);
+    	} catch (\Illuminate\Database\QueryException $e) {
+    		// Do whatever you need if the query failed to execute
+    		return response()->json('Error saat menyimpan data.', 500);
+    	}
+    }
+
+    // Get Menu List
+    public function list_menu($array_menu = [], $parent_menu = 0, $user_level)
+    {
+    	// 
+    	$userAccess = DB::table('to_user_access')->where('user_level', '=', $user_level)->select('menu_id');
+    	$menu = DB::table('to_menu')->select('to_menu.id', 'to_menu.parent_menu', 'to_menu.menu_name', 'to_menu.menu_child', 'to_menu.menu_icon', 'to_menu.menu_link', DB::raw('IF(to_menu.id = to_user_access.menu_id, 1, 0) AS kondisi'))
+    		->leftJoinSub($userAccess, 'to_user_access', function ($join) {
+            	$join->on('to_menu.id', '=', 'to_user_access.menu_id');
+        	})->where('to_menu.parent_menu', '=', $parent_menu)->get();
+    	foreach ($menu as $array) {
+            if ($array->menu_child == 1) {
+                $array->sub_child = $this->list_menu([], $array->id, $user_level);
+            }
+        }
+    	return $menu;
+    }
+    public function ajax_list_menu(Request $request)
+    {
+    	$datas = $this->list_menu([], 0, $request->user_level);
+
+	    return response()->json($datas, 200);
+    }
+    public function ajax_list_parent_menu(Request $request)
+    {
+    	$datas = DB::table('to_menu')->select('to_menu.id', 'to_menu.menu_name')->where('to_menu.parent_menu', '=', 0)->get();
+
+    	return response()->json($datas, 200);
+    }
+
+    // Save Menu
+    public function save_menu(Request $request)
+    {
+    	$messages = [
+    		'menu_name.required' => "Field Nama Menu wajib diisi!",
+    		'menu_link.required' => "Field Menu Link wajib diisi!",
+    		'menu_link.required' => "Field Menu Icon wajib diisi!",
+    		// 'is_enabled.required' => "Field Username wajib diisi!",
+    		
+    	];
+      # Rules Validation
+    	$validation = $this->validate($request, [
+    		'menu_name' => 'required',
+    		'menu_link' => 'required',
+    		'menu_icon' => 'required',
+    		// 'is_enabled' => 'required',
+    	], $messages);
+
+    	try {
+    		$menu = DB::table('to_menu')->updateOrInsert(
+    			['id' => $request->id_menu],
+    			[
+    				'parent_menu' => $request->parent_menu
+    				, 'menu_name' => $request->menu_name
+    				, 'menu_child' => $request->menu_child
+    				, 'menu_link' => $request->menu_link
+    				, 'menu_icon' => $request->menu_icon
+    				, 'updated_at' => \Carbon\Carbon::now()
+    			]
+    		);
+    		return response()->json('success', 200);
+    	} catch (\Illuminate\Database\QueryException $e) {
+    		// Do whatever you need if the query failed to execute
+    		return response()->json('Error saat menyimpan data.', 500);
+    	}
+    }
+
+    // Save User Access
+    public function save_user_access(Request $request)
+    {
+    	$messages = [
+    		'user_level.required' => "User Level Wajib diisi!",
+    		'checked_menu.required' => "Checked Menu wajib disertakan!",
+    		'unchecked_menu.required' => "UnChecked Menu wajib disertakan!",
+    		// 'is_enabled.required' => "Field Username wajib diisi!",
+    		
+    	];
+      # Rules Validation
+    	$validation = $this->validate($request, [
+    		'user_level' => 'required',
+    		'checked_menu' => 'required',
+    		'unchecked_menu' => 'required',
+    		// 'is_enabled' => 'required',
+    	], $messages);
+
+    	try {
+    		for ($i=0; $i < count($request->checked_menu) ; $i++) { 
+	    		DB::table('to_user_access')->updateOrInsert(
+	    			['user_level' => $request->user_level, 'menu_id' => $request->checked_menu[$i]]
+	    			, ['updated_at' => \Carbon\Carbon::now()]
+	    		);
+    		}
+    		DB::table('to_user_access')->where('user_level', '=', $request->user_level)->whereIn('menu_id', $request->unchecked_menu)->delete();
     		return response()->json('success', 200);
     	} catch (\Illuminate\Database\QueryException $e) {
     		// Do whatever you need if the query failed to execute

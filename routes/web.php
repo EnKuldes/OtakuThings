@@ -39,3 +39,7 @@ Route::post('/utilities/user-managements/list-user-level-ajax', 'User\AdminContr
 Route::post('/utilities/user-managements/save-user-level', 'User\AdminController@save_user_level')->name('utilities.user-managements.save-user-level');
 
 Route::get('/utilities/menu-managements', 'User\AdminController@menu_management')->name('utilities.menu-managements');
+Route::post('/utilities/menu-managements/list-menu-ajax', 'User\AdminController@ajax_list_menu')->name('utilities.menu-managements.list-menu-ajax');
+Route::post('/utilities/menu-managements/list-parent-menu-ajax', 'User\AdminController@ajax_list_parent_menu')->name('utilities.menu-managements.list-parent-menu-ajax');
+Route::post('/utilities/menu-managements/save-menu', 'User\AdminController@save_menu')->name('utilities.menu-managements.save-menu');
+Route::post('/utilities/menu-managements/save-user-access', 'User\AdminController@save_user_access')->name('utilities.menu-managements.save-user-access');
