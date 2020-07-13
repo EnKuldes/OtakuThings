@@ -48,6 +48,7 @@ class HomeController extends Controller
             })->where([
                 ['is_enabled', '=', '1']
                 , ['parent_menu', '=', $parent_menu]
+                , ['menu_link', '!=', '#']
             ])->first();
         return redirect($tempArray->menu_link);
     }
