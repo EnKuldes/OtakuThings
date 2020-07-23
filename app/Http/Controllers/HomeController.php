@@ -47,7 +47,7 @@ class HomeController extends Controller
                 $query->select('menu_id')->from('to_user_access')->where('user_level', '=', auth()->user()->user_level);
             })->where([
                 ['is_enabled', '=', '1']
-                , ['parent_menu', '=', $parent_menu]
+                // , ['parent_menu', '=', $parent_menu]
                 , ['menu_link', '!=', '#']
             ])->first();
         return redirect($tempArray->menu_link);
