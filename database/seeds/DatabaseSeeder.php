@@ -11,11 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserSeeder::class);
-        $this->call(UserSeeder::class);
-        $this->call(QuestionnaireQuestionSeeder::class);
-        $this->call(QuestionnaireGreetingSeeder::class);
-
         // List Jenis Survey
         $jenis_survey = array(
             array('id' => '1', 'jenis_survey' => 'Consumer', 'deskripsi' => 'Consumer'),
@@ -233,5 +228,12 @@ class DatabaseSeeder extends Seeder
             array('user_level' => '4', 'menu_id' => '5'),
         );
         DB::table('to_user_access')->insert($list_menu);
+
+        // $this->call(UserSeeder::class);
+        $this->call(UserSeeder::class);
+        $this->call(QuestionnaireQuestionSeeder::class);
+        $this->call(QuestionnaireGreetingSeeder::class);
+        $this->call(addMenuSeederClass::class);
+        
     }
 }
