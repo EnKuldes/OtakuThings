@@ -43,3 +43,6 @@ Route::post('/utilities/menu-managements/list-menu-ajax', 'User\AdminController@
 Route::post('/utilities/menu-managements/list-parent-menu-ajax', 'User\AdminController@ajax_list_parent_menu')->name('utilities.menu-managements.list-parent-menu-ajax');
 Route::post('/utilities/menu-managements/save-menu', 'User\AdminController@save_menu')->name('utilities.menu-managements.save-menu');
 Route::post('/utilities/menu-managements/save-user-access', 'User\AdminController@save_user_access')->name('utilities.menu-managements.save-user-access');
+
+Route::get('/utilities/uploads-and-targets', 'User\AdminController@uploads_and_targets')->name('utilities.uploads-and-targets');
+Route::post('/utilities/upload-data', 'User\AdminController@upload_data')->name('utilities.upload-data');

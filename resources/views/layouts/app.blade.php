@@ -79,6 +79,9 @@
                 progressBar: !0
             })
         }
+        @if (session()->has('message'))
+        toastr_me({{ Session::get(0) }}, {{ Session::get(1) }}, {{ Session::get(2) }});
+        @endif
     </script>
     
 </body>

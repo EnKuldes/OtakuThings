@@ -14,6 +14,10 @@ use yajra\Datatables\Datatables;
 // Masang Traits
 use App\Traits\MenuTrait;
 
+// Laravel Excel
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\DataImport;
+
 class AdminController extends Controller
 {
 	// Makai Fungsi yang disediaiin Traits
@@ -50,6 +54,17 @@ class AdminController extends Controller
         $menu_list = $this->get_menu_item();
         $list_user_level = $this->list_user_level();
         return view('utilities.menu-managements')->with(compact('menu_list'))->with(compact('list_user_level'));
+    }
+
+    // Laman Upload dan set Target
+    public function uploads_and_targets()
+    {
+        if (! $this->can_access(\Request::path())) {
+    		abort(401);
+    	}
+    	
+        $menu_list = $this->get_menu_item();
+        return view('utilities.uploads-and-targets')->with(compact('menu_list'));
     }
 
     // List User
@@ -298,5 +313,36 @@ class AdminController extends Controller
     		// Do whatever you need if the query failed to execute
     		return response()->json('Error saat menyimpan data.', 500);
     	}
+    }
+
+    // Upload files
+    public function upload_data(Request $request)
+    {
+        $messages = [
+            'file.required' => "File Wajib dilampirkan!",
+            'file.mimes' => "Format File Tidak Sesuai!",
+            // 'list_kolom.required' => "List Kolom belum diisi!",
+            // 'is_enabled.required' => "Field Username wajib diisi!",
+            
+        ];
+      # Rules Validation
+        $validation = $this->validate($request, [
+            'file' => 'required|mimes:csv,xls,xlsx',
+            // 'list_kolom' => 'required',
+            // 'is_enabled' => 'required',
+        ], $messages);
+        
+        // Ambil file dan simpan ke folder upload
+        $file = $request->file('file'); 
+        /*$generated_filename = rand().$file->getClientOriginalName();
+        $file->move('upload/data',$generated_filename);*/
+
+        // Import Data
+        // Excel::import(new DataImport($request), public_path('/upload/data/'.$generated_filename));
+        Excel::import(new DataImport($request), $file);
+
+        // notifikasi dengan session
+        $request->session()->flash('message', ['success', 'Success', 'Suskes melakukan upload!']);
+        return redirect()->route('utilities.uploads-and-targets');
     }
 }
