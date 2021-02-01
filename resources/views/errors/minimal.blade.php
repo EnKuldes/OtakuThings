@@ -69,7 +69,7 @@
                             </div>
                             <div class="card-footer bg-transparent">
                                 <div class="row">
-                                    <p class="text-muted text-center col-12 py-1">© <span class="year"></span> <a href="https://github.com/SquidFoxDev">SquidFoxDev </a></p>
+                                    <p class="text-muted text-center col-12 py-1">© <span class="year"></span> <a href="https://github.com/EnKuldes">EnKuldes </a></p>
                                     {{-- <div class="col-12 text-center">
                                         <a href="#" class="btn btn-social-icon mr-1 mb-1 btn-outline-facebook"><span class="fa fa-facebook"></span></a>
                                         <a href="#" class="btn btn-social-icon mr-1 mb-1 btn-outline-twitter"><span class="fa fa-twitter"></span></a>
