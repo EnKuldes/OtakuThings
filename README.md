@@ -7,7 +7,19 @@ Requirements:
 </ul>
 
 Installation:
-
+<ol>
+	<li>Download and Extract/Clone this repository</li>
+	<li>Open your terminal and go to the location of extracted/clone repository folder. Then run following commands without quotes:
+		<ul>
+			<li>"composer install". Its used to install package such as Laravel 7 and othe packages that included in here</li>
+			<li>"cp .env.example .env". Its to copy the current enviroment default value (.env.example) to new enviroment (.env) which will be used for this app</li>
+			<li>"php artisan key:generate". its used to generate key app</li>
+			<li>"php artisan migrate:refresh --seed", its used to generate default tables to be used on this app with default seeder. Its also can run later after you create another migrations/models.</li>
+		</ul>
+	</li>
+	<li>Open .env file that created from before and edit it with the current enviroment you want to use</li>
+	<li>To run this app you can run "php artisan serve" which will make Laravel create own apache server on port 8000 (defaultly) or you can assign it using VHost.</li>
+</ol>
 
 Included Package:
 <ul>
