@@ -224,7 +224,7 @@ class AdminController extends Controller
     	$menu = DB::table('to_menu')->select('to_menu.id', 'to_menu.parent_menu', 'to_menu.menu_name', 'to_menu.menu_child', 'to_menu.menu_icon', 'to_menu.menu_link', DB::raw('IF(to_menu.id = to_user_access.menu_id, 1, 0) AS kondisi'))
     		->leftJoinSub($userAccess, 'to_user_access', function ($join) {
             	$join->on('to_menu.id', '=', 'to_user_access.menu_id');
-        	})->where('to_menu.parent_menu', '=', $parent_menu)->orderBy('to_menu.id')->get();
+        	})->where('to_menu.parent_menu', '=', $parent_menu)->orderBy('to_menu.menu_order')->get();
     	foreach ($menu as $array) {
             if ($array->menu_child == 1) {
                 $array->sub_child = $this->list_menu([], $array->id, $user_level);
@@ -251,7 +251,8 @@ class AdminController extends Controller
     	$messages = [
     		'menu_name.required' => "Field Nama Menu wajib diisi!",
     		'menu_link.required' => "Field Menu Link wajib diisi!",
-    		'menu_link.required' => "Field Menu Icon wajib diisi!",
+    		'menu_icon.required' => "Field Menu Icon wajib diisi!",
+            'menu_order.required' => "Field Menu Order wajib diisi!",
     		// 'is_enabled.required' => "Field Username wajib diisi!",
     		
     	];
@@ -260,6 +261,7 @@ class AdminController extends Controller
     		'menu_name' => 'required',
     		'menu_link' => 'required',
     		'menu_icon' => 'required',
+            'menu_order' => 'required',
     		// 'is_enabled' => 'required',
     	], $messages);
 
@@ -269,6 +271,7 @@ class AdminController extends Controller
     			[
     				'parent_menu' => $request->parent_menu
     				, 'menu_name' => $request->menu_name
+                    , 'menu_order' => $request->menu_order
     				, 'menu_child' => $request->menu_child
     				, 'menu_link' => $request->menu_link
     				, 'menu_icon' => $request->menu_icon

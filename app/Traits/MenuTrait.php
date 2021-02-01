@@ -17,7 +17,7 @@ trait MenuTrait {
             })->where([
                 ['is_enabled', '=', '1']
                 , ['parent_menu', '=', $parent_menu]
-            ])->get();
+            ])->orderBy('menu_order')->get();
         foreach ($tempArray as $array) {
             if ($array->menu_child == 1) {
                 $array->sub_child = $this->get_menu_item([], $array->id);

@@ -82,6 +82,7 @@
 				}).appendTo('#form-add-menu');
 				$('#form-add-menu select[name=parent_menu]').val(data['dataAttributes']['parent_menu']).change();
 				$('#form-add-menu input[name=menu_name]').val(data['dataAttributes']['menu_name']);
+				$('#form-add-menu input[name=menu_order]').val(data['dataAttributes']['menu_order']);
 				$('#form-add-menu select[name=menu_child]').val(data['dataAttributes']['menu_child']).change();
 				$('#form-add-menu input[name=menu_link]').val(data['dataAttributes']['menu_link']);
 				$('#form-add-menu input[name=menu_icon]').val(data['dataAttributes']['menu_icon']);
@@ -341,7 +342,7 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-7">
+						<div class="col-md-4">
 							<div class="form-group">
 								<label>Menu Link</label>
 								<input name="menu_link" type="text" class="form-control" placeholder="#">
@@ -351,6 +352,12 @@
 							<div class="form-group">
 								<label>Menu Icon</label>
 								<input name="menu_icon" type="text" class="form-control" placeholder="feather icon-slack">
+							</div>
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label>Menu Order</label>
+								<input name="menu_order" type="text" class="form-control" placeholder="0">
 							</div>
 						</div>
 					</div>
