@@ -1,5 +1,5 @@
 {{-- BEGIN: Header --}}
-<nav class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top navbar-semi-light bg-gradient-x-pink">
+<nav class="header-navbar navbar-expand-md navbar navbar-with-menu fixed-top {{ config('myconfig.navbar_theme') }} {{ config('myconfig.navbar_color') }}"> {{-- To Change Navbar Color Scheme --}}
   <div class="navbar-wrapper">
     <div class="navbar-header">
       <ul class="nav navbar-nav flex-row">

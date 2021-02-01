@@ -1,5 +1,5 @@
 {{-- BEGIN: Main Menu --}}
-<div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
+<div class="main-menu menu-fixed menu-accordion menu-shadow {{ config('myconfig.menu_color') }} {{ config('myconfig.navigation_layout') }}" data-scroll-to-active="true"> {{-- To change menu item scheme colors --}}
   <div class="main-menu-content">
     <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
       <li class=" navigation-header">
