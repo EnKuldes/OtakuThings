@@ -1,4 +1,4 @@
-Stack - Clean Responsive Bootstrap 4 Admin Dashboard Template Slicing to Laravel 7.
+Template Stack - Clean Responsive Bootstrap 4 Admin Dashboard Template Slicing to Laravel 7.
 
 Requirements:
 <ul>
