@@ -23,7 +23,7 @@
 <div class="card border-grey border-lighten-3 px-1 py-1 m-0">
     <div class="card-header border-0">
         <div class="card-title text-center">
-        <img src="{{ asset('app-assets/images/logo/stack-logo-dark.png') }}" alt="branding logo">
+        <img src="{{ asset('app-assets/images/logo/stack-logo-dark.png') }}" alt="branding logo"> {{-- To change Logo Asset here --}}
         </div>
     </div>
     <div class="card-content">

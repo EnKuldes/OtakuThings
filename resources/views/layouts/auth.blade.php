@@ -11,7 +11,7 @@
 
     {{-- Main CSS --}}
     <link rel="apple-touch-icon" href="{{ asset('app-assets/images/ico/apple-icon-120.png') }}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('app-assets/images/ico/favicon.ico') }}"> <!-- Source: Icons made by <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons">Flat Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a> -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('app-assets/images/ico/favicon.ico') }}"> {{-- To Change Shortcut Icon Here --}} <!-- Source: Icons made by <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons">Flat Icons</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a> -->
     <link href="{{ asset('assets/css/font-googleapis.css') }}" rel="stylesheet">
 	{{-- BEGIN: Vendor CSS --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/vendors.min.css') }}">
@@ -23,7 +23,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/bootstrap-extended.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/colors.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/components.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/components.min.css') }}"> {{-- To Change Backgorund Image of Login Page is Here, search "html body.bg-full-screen-image" then replace with images that needed --}}
     {{-- BEGIN: Custom CSS --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
     
