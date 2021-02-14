@@ -138,7 +138,7 @@
                                     <div class="col-lg-6 col-xl-3 col-sm-6 col-12">
                                         <div class="d-flex align-items-start mb-sm-1 mb-xl-0 border-right-blue-grey border-right-lighten-5">
                                             <span class="card-icon primary d-flex justify-content-center mr-3">
-                                                <i class="icon p-1 icon-bar-chart customize-icon font-large-2 p-1"></i>
+                                                <i class="feather p-1 icon-monitor customize-icon font-large-2 p-1"></i>
                                             </span>
                                             <div class="stats-amount mr-3">
                                                 <h3 class="heading-text text-bold-600" id="information_score"></h3>
@@ -149,7 +149,7 @@
                                     <div class="col-lg-6 col-xl-3 col-sm-6 col-12">
                                         <div class="d-flex align-items-start mb-sm-1 mb-xl-0 border-right-blue-grey border-right-lighten-5">
                                             <span class="card-icon danger d-flex justify-content-center mr-3">
-                                                <i class="icon p-1 icon-pie-chart customize-icon font-large-2 p-1"></i>
+                                                <i class="feather p-1 icon-play-circle customize-icon font-large-2 p-1"></i>
                                             </span>
                                             <div class="stats-amount mr-3">
                                                 <h3 class="heading-text text-bold-600" id="information_episodes"></h3>
@@ -171,7 +171,7 @@
                                     <div class="col-lg-6 col-xl-3 col-sm-6 col-12">
                                         <div class="d-flex align-items-start">
                                             <span class="card-icon warning d-flex justify-content-center mr-3">
-                                                <i class="icon p-1 icon-basket-loaded customize-icon font-large-2 p-1"></i>
+                                                <i class="feather p-1 icon-users customize-icon font-large-2 p-1"></i>
                                             </span>
                                             <div class="stats-amount mr-3">
                                                 <h3 class="heading-text text-bold-600" id="information_members"></h3>

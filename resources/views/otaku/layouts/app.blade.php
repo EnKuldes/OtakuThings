@@ -48,7 +48,7 @@
         <div class="navbar-header">
           <ul class="nav navbar-nav flex-row">
             <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="feather icon-menu font-large-1"></i></a></li>
-            <li class="nav-item"><a class="navbar-brand" href="{{url('/')}}"><img class="brand-logo" alt="OtakuThings Logo" src="{{ asset('app-assets/images/logo/stack-logo.png') }}" width="30px">
+            <li class="nav-item"><a class="navbar-brand" href="{{url('/')}}" style="display:inline-block"><img class="brand-logo" alt="OtakuThings Logo" src="{{ asset('app-assets/images/logo/stack-logo.png') }}" width="30px">
                 <h2 class="brand-text">{{ config('app.name', 'Laravel') }}</h2></a></li>
             <li class="nav-item d-md-none"><a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i class="fa fa-ellipsis-v"></i></a></li>
           </ul>
@@ -63,7 +63,7 @@
         <div class="navbar-container content">
           <div class="collapse navbar-collapse" id="navbar-mobile">
             <ul class="nav navbar-nav mr-auto float-left">
-              <li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle hidden-xs is-active" href="#"><i class="feather icon-menu"></i></a></li>
+              <li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle hidden-xs " href="#"><i class="feather icon-menu"></i></a></li>
                            
             </ul>
           </div>

@@ -12,6 +12,7 @@ class PageController extends Controller
 	public function __construct()
     {
         $this->list_menu = collect([
+        	(object) ['menu_link' => '', 'menu_icon' => 'feather icon-search', 'menu_name' => 'Pencarian Anime&Manga', 'menu_child' => 0, 'sub_child' => collect([])],
         	(object) ['menu_link' => 'top_rank', 'menu_icon' => 'feather icon-award', 'menu_name' => 'Top Rank Anime&Manga', 'menu_child' => 0, 'sub_child' => collect([])],
         	(object) ['menu_link' => 'jadwal_tayang', 'menu_icon' => 'feather icon-film', 'menu_name' => 'Jadwal Tayang Anime', 'menu_child' => 0, 'sub_child' => collect([])],
         	(object) ['menu_link' => 'seasonal_anime', 'menu_icon' => 'feather icon-monitor', 'menu_name' => 'Seasonal Anime', 'menu_child' => 0, 'sub_child' => collect([])]

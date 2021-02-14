@@ -55,7 +55,7 @@
                     <form id="form_query" method="get" action="{{ route('search') }}">
                         <img class="img-fluid mx-auto d-block pb-3 pt-4 width-30-per" src="{{ asset('app-assets/images/logo/stack-logo-dark-big.png') }}" alt="OtakuThings Search">
                         <fieldset class="form-group position-relative">
-                            <input type="text" class="form-control form-control-xl input-xl" id="iconLeft1" placeholder="Explore OtakuThings ..." name="q" required="true">
+                            <input type="text" class="form-control form-control-xl input-xl" id="iconLeft1" placeholder="Explore OtakuThings ..." name="q" required="true" pattern=".{3,}">
                             {{-- <div class="form-control-position">
                                 <i class="feather icon-mic font-medium-4"></i>
                             </div> --}}
